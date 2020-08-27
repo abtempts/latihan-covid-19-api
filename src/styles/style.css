@@ -1,0 +1,87 @@
+@import "appbar.css";
+@import "webclock.css";
+@import "searchbar.css";
+
+body {
+	max-width: 1170px;
+	width: 100%;
+	margin: 0 auto;
+	font-family: sans-serif;
+	background-color: #303030;
+	color: white;
+}
+
+main {
+	align: center;
+}
+
+.confirmed-value {
+	background-color: #faffb0;
+	color: black;
+}
+
+.recovered-value {
+	background-color: #c0ffb6;
+	color: black;
+}
+
+.deaths-value {
+	background-color: #ffd6d6;
+	color: black;
+}
+
+.lastUpdated-value {
+	background-color: lightgray;
+	color: black;
+}
+
+.donat-container {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+.summary-container {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+#label-summary {
+	color: blue;
+}
+
+.summary-info {
+	width: 500px;
+}
+
+#extra {
+	margin-bottom: 30px;
+}
+
+#label-item {
+	text-align: center;
+}
+
+.item-info {
+	width: 1000px;
+	text-align: center;
+}
+
+@media (max-width: 1000px) {
+	.donat-container {
+		width: 80%;
+	}
+	.clock{
+		margin-left: 100px;
+	}
+}
+
+@media (max-width: 670px) {
+	.donat-container {
+		width: 50%;
+	}
+	.clock{
+		margin-left: 50px;
+	}
+}
