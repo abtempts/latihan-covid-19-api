@@ -41,14 +41,14 @@ main {
 	text-align: center;
 }
 
-.summary-container {
+.data-container {
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
 }
 
 #label-summary {
-	color: blue;
+	color: white;
 }
 
 .summary-info {

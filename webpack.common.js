@@ -1,7 +1,7 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const webpackConfig = {
 	entry: {
 		main: './src/script/main/index.js'
 	},
@@ -26,30 +26,15 @@ module.exports = {
 					}
 				]
 			},
-			
-			//babel loader
-			{
-				test: /\.js$/,
-				exclude: "/node_mdules",
-				use: [
-					{
-						loader: "babel-loader",
-						options: {
-							presets: ["@babel/preset-env"]
-						}
-					}
-				]
-			}
 
 		]
 	},
+	plugins: [new HtmlWebpackPlugin({
+		template: "./src/script/main/index.html",
+		filename: "index.html"
+	})]	
 	
-	//plugins
-	plugins: [
-		//html webpack plugins
-		new HtmlWebpackPlugin({
-			template: "./index.html",
-			filename: "index.html"
-		})
-	]
-}
+	
+};
+
+module.exports = webpackConfig;

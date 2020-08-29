@@ -1,8 +1,17 @@
+import '../component/container-summary.js';
+import '../component/container-donat.js';
+import '../component/country-item.js';
+import '../component/country-donat.js';
+import '../component/web-clock.js';
+import '../component/app-bar.js';
+import '../component/search-bar.js';
+
 import 'regenerator-runtime';
 import "../../styles/style.css";
 import $ from "jquery";
 import moment from "moment";
 import Chart from 'chart.js';
+
 
 
 let appBarElement = document.querySelector("app-bar");
@@ -224,25 +233,30 @@ function fetchCountryItem(item, label){
 const countryInfo = document.getElementById("countryInfo");
 
 async function request(url){
-	const response = await fetch(url);
+	
+	let response = await fetch(url);
 	const json = await response.json();
+	console.log(json);
 	return await json;
 }
 
 
 const main = () => {
 	let searchElement = document.querySelector("search-bar");
-	console.log(searchElement.value);
-	
 	const onButtonSearchClicked = async() => {
+		console.log("breakpoint1: "+searchElement.value);
+			
 		try {
-			let country = searchElement.value;
-			let apiUrl = "https://covid19.mathdro.id/api/countries/"+country;
-			console.log(searchElement.value);
+			console.log("breakpoint2: "+searchElement.value);
+			
+			let apiUrl = "https://covid19.mathdro.id/api/countries/"+searchElement.value;
+			
+			console.log("breakpoint3: "+searchElement.value);
+			
 			request(apiUrl)
 			.then(res => {
-					countryInfo.innerHTML = fetchCountryItem(res, country);
-             }		
+					countryInfo.innerHTML = fetchCountryItem(res, searchElement.value);
+             }			 
 		)
 			
 			renderResult(result);
@@ -268,5 +282,6 @@ let resetCanvas = function() {
 }
 
 //export default main;
-
-document.getElementById("searchButtonElement").addEventListener("click", main);
+document.addEventListener('DOMContentLoaded', _ => {
+	document.getElementById("searchButtonElement").addEventListener("click", main);
+})
