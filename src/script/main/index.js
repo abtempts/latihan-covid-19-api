@@ -131,12 +131,12 @@ function fetchSummaryData(summary, label){
 				title: {
 					display: true,
 					text: label,
-					fontColor: "blue",
+					fontColor: "white",
 					fontSize: 24
 				},
 				legend: {
 					labels: {
-						fontColor: "blue",
+						fontColor: "white",
 						fontSize: 18
 					}
 				}
@@ -199,12 +199,12 @@ function fetchCountryItem(item, label){
 				title: {
 					display: true,
 					text: label,
-					fontColor: "blue",
+					fontColor: "white",
 					fontSize: 24
 				},
 				legend: {
 					labels: {
-						fontColor: "blue",
+						fontColor: "white",
 						fontSize: 18
 					}
 				}
