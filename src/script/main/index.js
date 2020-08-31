@@ -64,7 +64,7 @@ const dataAPI = (function(){
 			}
 			else
 			{
-				urls.push(apiUrl1+"/indonesia");
+			urls.push(`${apiUrl1}/indonesia`);
 			}
 		}
 
@@ -103,14 +103,14 @@ function fetchSummaryData(summary, label){
 			const summaryElement = document.createElement("div");
             summaryElement.setAttribute("class", "summary");
 			
-			 summaryElement.innerHTML = '<div class="summary-info">\n' +
-			 '<label id="label-summary">'+label+'</label>' +
-                '<div class="confirmed-label">Positif</div> <div class="confirmed-value">' +
-				confirmed.toLocaleString() + '</div>' +
-				 '<div class="recovered-label">Sembuh</div><div class="recovered-value"> ' + recovered.toLocaleString() + '</div>' +
-                '<div class="deaths-label">Meninggal</div><div class="deaths-value"> ' + deaths.toLocaleString() + '</div>' +
-				'<div class="lastUpdated-label">Diperbarui</div> <div class="lastUpdated-value">' + lastUpdate + '</div>' +
-                '</div>';
+			 summaryElement.innerHTML = `<div class="summary-info">\n
+				<label id="label-summary">${label}</label>
+                <div class="confirmed-label">Positif</div> <div class="confirmed-value">
+				${confirmed.toLocaleString()}</div>
+				<div class="recovered-label">Sembuh</div><div class="recovered-value"> ${recovered.toLocaleString()} </div>
+				<div class="deaths-label">Meninggal</div><div class="deaths-value"> ${deaths.toLocaleString()} </div>
+				<div class="lastUpdated-label">Diperbarui</div> <div class="lastUpdated-value">${lastUpdate}</div>
+                </div>`;
 				
 			data = {
 				datasets: [{
@@ -142,7 +142,7 @@ function fetchSummaryData(summary, label){
 				}
 			};
 			
-			const donatLabel =  "donat"+label;
+			const donatLabel =  `donat${label}`;
 
 			const canvas = document.getElementById(donatLabel);
 			const ctx = canvas.getContext("2d");
@@ -171,14 +171,14 @@ function fetchCountryItem(item, label){
 			const countryItemElement = document.createElement("div");
             countryItemElement.setAttribute("class", "item");
 			
-			 countryItemElement.innerHTML = '<div class="item-info">\n' +
-			 '<h1 id="label-item">'+label+'</h1>' +
-                '<div class="confirmed-label">Positif</div> <div class="confirmed-value">' +
-				confirmed.toLocaleString() + '</div>' +
-				 '<div class="recovered-label">Sembuh</div><div class="recovered-value"> ' + recovered.toLocaleString() + '</div>' +
-                '<div class="deaths-label">Meninggal</div><div class="deaths-value"> ' + deaths.toLocaleString() + '</div>' +
-				'<div class="lastUpdated-label">Diperbarui</div> <div class="lastUpdated-value">' + lastUpdate + '</div>' +
-                '</div>';
+			 countryItemElement.innerHTML = `<div class="item-info">\n
+				<h1 id="label-item">${label}</h1>
+                <div class="confirmed-label">Positif</div> <div class="confirmed-value">
+				${confirmed.toLocaleString()}</div>
+				<div class="recovered-label">Sembuh</div><div class="recovered-value"> ${recovered.toLocaleString()} </div>
+				<div class="deaths-label">Meninggal</div><div class="deaths-value">{deaths.toLocaleString()}</div>
+				<div class="lastUpdated-label">Diperbarui</div> <div class="lastUpdated-value">${lastUpdate}</div>
+                </div>'`;
 							
 			data = {
 				datasets: [{
@@ -244,14 +244,14 @@ async function request(url){
 const main = () => {
 	let searchElement = document.querySelector("search-bar");
 	const onButtonSearchClicked = async() => {
-		console.log("breakpoint1: "+searchElement.value);
+		console.log(`breakpoint1: ${searchElement.value}`);
 			
 		try {
-			console.log("breakpoint2: "+searchElement.value);
+			console.log(`breakpoint2: ${searchElement.value}`);
 			
-			let apiUrl = "https://covid19.mathdro.id/api/countries/"+searchElement.value;
+			let apiUrl = `https://covid19.mathdro.id/api/countries/${searchElement.value}`
 			
-			console.log("breakpoint3: "+searchElement.value);
+			console.log(`breakpoint3: ${searchElement.value}`);
 			
 			request(apiUrl)
 			.then(res => {
